@@ -1,3 +1,6 @@
+from typing import MutableSequence
+
+
 class Node:
     def __init__(self,value=None):
         self.value = value
@@ -68,8 +71,48 @@ class CircularSLL:
                 tempNode = tempNode.next
                 if tempNode == self.tail.next:
                     return "Value Does not Exist in Circular SLL"
+    def deleteCSLL(self,position):
+        if self.head is None:
+            return "Circular Singly Linked List Does Not Exist"
+        else:
+            if position == 0:
+                if self.head == self.tail:
+                    self.head.next = None
+                    self.head = None
+                    self.tail = None
+                else:
+                    self.head = self.head.next
+                    self.tail.next =self.head
+            elif position == 1:
+                if self.head == self.tail:
+                    self.head = None
+                    self.tail = None
+                    self.head.next = None
+                else:
+                    node = self.head
+                    while node is not None:
+                        if node.next == self.tail:
+                            break
+                        node = node.next
+                    self.tail = node
+                    node.next = self.head
+            else:
+                index = 0
+                tempNode =  self.head
+                while index < position - 1:
+                    if tempNode.next == self.tail:
+                        break
+                    tempNode = tempNode.next
+                    index += 1
 
-            
+                    nextNode = tempNode.next
+                    tempNode.next = nextNode.next
+
+    def deleteEntireCSLL(self):
+        self.head = None
+        self.tail.next = None
+        self.tail = None
+
 
 circularSLL = CircularSLL()
 circularSLL.createCSLL(1)
@@ -80,5 +123,10 @@ circularSLL.insertCSLL(5,1)
 circularSLL.insertCSLL(22,4)
 print([node.value for node in circularSLL])
 circularSLL.traverseCSLL()
-print(circularSLL.searchCSLL(200))
-
+# print(circularSLL.searchCSLL())
+circularSLL.deleteCSLL(0)
+print([node.value for node in circularSLL])
+circularSLL.deleteCSLL(0)
+print([node.value for node in circularSLL])
+circularSLL.deleteCSLL(3)
+print([node.value for node in circularSLL])
