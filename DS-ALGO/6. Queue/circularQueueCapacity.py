@@ -10,7 +10,7 @@ class Queue:
         return " ".join(values)
     
     def isFull(self):
-        if self.top + 1 == self.top: return True
+        if self.top + 1 == self.start: return True
         elif self.start == 0 and self.top+1 == self.maxSize: return True
         else: return False 
     
@@ -29,9 +29,10 @@ class Queue:
                     self.start = 0
             self.items[self.top] = value
             return "Element has been Inserted at the end of Queue"
+
     def dequeue(self):
-        firstElement = self.items[self.start]
-        start = self.start
+        firstElement = self.items[self.start] #- Store First Element
+        start = self.start #- Store First Element Position
         if self.start + 1 == self.maxSize:
             self.start = 0
         elif self.start == self.top:
