@@ -1,4 +1,6 @@
 class Stack:
+
+    # --- Initialize Stack with Empty List and MaxSize --- #
     def __init__(self,maxSize):
         self.maxSize = maxSize
         self.list = []
@@ -12,6 +14,7 @@ class Stack:
         if self.list == [] :  return True
         return False
 
+    # --- Checks if Stack is Full --- #
     def isFull(self):
         if len(self.list) == self.maxSize: return True
         return False
@@ -43,11 +46,11 @@ print(customStack.push(2))
 print("--****--")
 print(customStack.isEmpty())
 print("--****--")
-print(customStack)
+# print(customStack)
 print("--****--")
 print(customStack.push(2))
 print("--****--")
-print(customStack)
+# print(customStack)
 print("--****--")
 print(customStack.pop())
 print("--****--")
