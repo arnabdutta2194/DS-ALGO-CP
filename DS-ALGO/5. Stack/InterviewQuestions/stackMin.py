@@ -25,6 +25,7 @@ class Stack:
         item = self.top.value
         self.top = self.top.next
         return item
+        
 customStack = Stack()
 customStack.push(10)
 customStack.push(4)
