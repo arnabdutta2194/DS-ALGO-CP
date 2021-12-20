@@ -1,8 +1,8 @@
 class MultiStack:
     def __init__(self,stackSize):
-        self.numberStacks = 3
-        self.custList = [0] * (stackSize * self.numberStacks)
-        self.sizes = [0] * self.numberStacks
+        self.numberStacks = 3 #-- Number of Stacks to Be Implemented
+        self.custList = [0] * (stackSize * self.numberStacks) #-- Stack Created with (StackSize * NumberOfStacks) Elements
+        self.sizes = [0] * self.numberStacks #-- List to tracks elements in Each SubStack
         self.stackSize = stackSize
 
     def isFull(self,stackNum):
@@ -14,8 +14,8 @@ class MultiStack:
         return False
 
     def indexOfTop(self,stackNum):
-        offset = stackNum * self.stackSize
-        return offset + self.sizes[stackNum] - 1
+        offset = stackNum * self.stackSize #-- Calculates First Position of intended Stack
+        return offset + self.sizes[stackNum] - 1 #-- Returns the Index of Topmost Element
     
     def push(self,item,stackNum):
         if self.isFull(stackNum): return "Stack is Full"
