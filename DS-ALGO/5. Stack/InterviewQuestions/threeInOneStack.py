@@ -17,7 +17,7 @@ class MultiStack:
         offset = stackNum * self.stackSize #-- Calculates First Position of intended Stack
         return offset + self.sizes[stackNum] - 1 #-- Returns the Index of Topmost Element
     
-    def push(self,item,stackNum):
+    def push(self,item,stackNum): 
         if self.isFull(stackNum): return "Stack is Full"
         else:
             self.sizes[stackNum] += 1
