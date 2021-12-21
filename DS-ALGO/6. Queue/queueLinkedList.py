@@ -45,11 +45,14 @@ class Queue:
     def dequeue(self):
         if self.isEmpty(): return "Queue is Empty"
         elif self.linkedList.head == self.linkedList.tail:
+            value = self.linkedList.head
             self.linkedList.head = None
             self.linkedList.tail = None
         else:
+            value = self.linkedList.head
             self.linkedList.head = self.linkedList.head.next
-        return "Element has been successfully removed"
+        # return "Element has been successfully removed"
+        return value
     
     def delete(self):
         self.linkedList.head = None

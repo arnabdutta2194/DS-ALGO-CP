@@ -45,27 +45,29 @@ class Queue:
     def dequeue(self):
         if self.isEmpty(): return "Queue is Empty"
         elif self.linkedList.head == self.linkedList.tail:
+            value = self.linkedList.head
             self.linkedList.head = None
             self.linkedList.tail = None
         else:
+            value = self.linkedList.head
             self.linkedList.head = self.linkedList.head.next
-        return "Element has been successfully removed"
-    
+        # return "Element has been successfully removed"
+        return value
     def delete(self):
         self.linkedList.head = None
         self.linkedList.tail = None
 
 
-customQueue = Queue()
-print(customQueue.isEmpty())
-print("---***---")
-print(customQueue.enqueue(10))
-print(customQueue.enqueue(20))
-print(customQueue.enqueue(3))
-print(customQueue)
-print("---***---")
-print(customQueue.peek())
-print("---***---")
-print(customQueue.dequeue())
-print(customQueue)
-print(customQueue.peek())
+# customQueue = Queue()
+# print(customQueue.isEmpty())
+# print("---***---")
+# print(customQueue.enqueue(10))
+# print(customQueue.enqueue(20))
+# print(customQueue.enqueue(3))
+# print(customQueue)
+# print("---***---")
+# print(customQueue.peek())
+# print("---***---")
+# print(customQueue.dequeue())
+# print(customQueue)
+# print(customQueue.peek())
