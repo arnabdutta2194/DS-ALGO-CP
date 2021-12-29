@@ -1,4 +1,5 @@
 import queueLinkedList as queue
+# --- Initializing a Tree Node
 class TreeNode:
     def __init__(self,data):
         self.data = data
@@ -20,7 +21,7 @@ rightChild.leftChild = cola
 newBTree.leftChild = leftChild #-- Add Left Child
 newBTree.rightChild = rightChild #-- Add Right Child
 
-
+# --- Pre Order Traversal(Root --> LST --> RST)
 def preOrderTraversal(rootNode):
     if not rootNode: # ----> O(1)
         return
@@ -31,6 +32,7 @@ def preOrderTraversal(rootNode):
     #---- Time Complexity --- O(n)
     #---- Space Complexity --- O(n) [As we are using Stack Memory]
 
+# --- In Order Traversal(LST --> Root Node --> RST)
 def inOrderTraversal(rootNode):
     if not rootNode: return #----> O(1)
     inOrderTraversal(rootNode.leftChild) # ----> O(n/2)
@@ -40,6 +42,7 @@ def inOrderTraversal(rootNode):
     #---- Time Complexity --- O(n)
     #---- Space Complexity --- O(n) [As we are using Stack Memory]
 
+# --- Post Order Traversal(LST --> RST --> Root Node)
 def postOrderTraversal(rootNode):
     if not rootNode: return
     postOrderTraversal(rootNode.leftChild)
@@ -48,6 +51,7 @@ def postOrderTraversal(rootNode):
     #---- Time Complexity --- O(n)
     #---- Space Complexity --- O(n) [As we are using Stack Memory]
 
+# --- Level Order Traversal(Traverse Level By Level)
 def levelOrderTraversal(rootNode):
     if not rootNode: return # -----> O(1)
     else:
@@ -63,7 +67,7 @@ def levelOrderTraversal(rootNode):
     #---- Time Complexity --- O(n)
     #---- Space Complexity --- O(n) [As we are Creating Custom Queue Memory]
             
-
+# --- Searching a Binary Tree
 def searchBinaryTree(rootNode,nodeValue):
     if not rootNode: return "Binary Tree Does Not Exists" 
     else:
@@ -80,6 +84,7 @@ def searchBinaryTree(rootNode,nodeValue):
                 customQueue.enqueue(root.value.rightChild)
     return "Node Does Not Exist in Binary Tree"
 
+# --- Inserting a Node
 def insertNodeBTree(rootNode,newNode):
     if not rootNode:
         rootNode = newNode
@@ -99,6 +104,7 @@ def insertNodeBTree(rootNode,newNode):
                 root.value.rightChild = newNode
                 return "Node successfully Inserted"
 
+# --- Get the Deepest Node
 def getDeepestNode(rootNode):
     if not rootNode: return "Binary Tree Does Not Exists" 
     else:
@@ -112,6 +118,8 @@ def getDeepestNode(rootNode):
                 customQueue.enqueue(root.value.rightChild)
         deepestNode = root.value
         return deepestNode
+
+# --- Delete the Deepest Node
 def deleteDeepestNode(rootNode,deepestNode):
     if not rootNode:
         return
@@ -136,6 +144,7 @@ def deleteDeepestNode(rootNode,deepestNode):
                 else:
                     customQueue.enqueue(root.value.rightChild)
 
+# --- Delete a Custom Node
 def deleteNodeBtree(rootNode,node):
     if not rootNode:
         return
@@ -155,6 +164,7 @@ def deleteNodeBtree(rootNode,node):
                 customQueue.enqueue(root.value.rightChild)
         return "Node is Not Found"
 
+# --- Delete Entire Binary Tree
 def deleteBinaryTree(rootNode):  #--- Time Complexity - O(1)
     rootNode.data = None        
     rootNode.leftChild = None        
