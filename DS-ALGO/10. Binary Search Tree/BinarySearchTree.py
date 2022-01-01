@@ -1,4 +1,5 @@
 import queueLinkedList as queue
+
 class BSTNode:
     def __init__(self,data):
         self.data = data
@@ -54,7 +55,7 @@ def levelOrderTraversal(rootNode):
                 customQueue.enqueue(root.value.rightChild)
     #---- Time Complexity --- O(n)
     #---- Space Complexity --- O(n) [As we are Creating Custom Queue Memory]
-            
+
 
 def searchBST(rootNode,nodeValue):
     if rootNode is None : return
@@ -95,6 +96,7 @@ def deleteNode(rootNode,nodeValue):
             temp = rootNode.leftChild
             rootNode = None
             return temp
+        
         
         #-- If Root Node has Two Childs
         temp = minValueNode(rootNode.rightChild)
