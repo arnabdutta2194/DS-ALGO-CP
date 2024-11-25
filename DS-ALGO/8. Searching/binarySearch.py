@@ -1,24 +1,29 @@
-import math
-def binarySearch(customArray,value):
-    start = 0
-    end = len(customArray) - 1
-    mid = math.floor((start + end)/2)
-    if customArray[mid] == value:
-        return mid
-
-    while not(customArray[mid] == value) and start <= end:
-        if value < customArray[mid]:
-            # binarySearch(customArray[start:mid-1],value)
-            end = mid - 1
-        else:
-            # binarySearch(customArray[mid+1:end],value)
-            start = mid + 1
-        mid = math.floor((start+end)/2)
-        print(start,mid,end)
-        if customArray[mid] == value:
+def binary_search(arr, low, high, x):
+    # Check base case
+    if high >= low:
+        mid = (high + low) // 2
+        # If element is present at the middle itself
+        if arr[mid] == x:
             return mid
+        # If element is smaller than mid, then it can only
+        # be present in left subarray
+        elif arr[mid] > x:
+            return binary_search(arr, low, mid - 1, x)
+        # Else the element can only be present in right subarray
         else:
-            return -1
-
-custArray = [8,9,12,15,17,18,22,28]
-print(binarySearch(custArray,122))
+            return binary_search(arr, mid + 1, high, x)
+    else:
+        # Element is not present in the array
+        return -1
+ 
+# Test array
+arr = [ 2, 3, 4, 10, 40 ]
+x = 11
+ 
+# Function call
+result = binary_search(arr, 0, len(arr)-1, x)
+ 
+if result != -1:
+    print("Element is present at index", str(result))
+else:
+    print("Element is not present in array")

@@ -5,7 +5,7 @@ def fibonacci(n,d):
         ans = n
     else:
         ans = fibonacci(n-1,d) + fibonacci(n-2,d)
-    d[n] = ans
+        d[n] = ans
     return ans
 res = fibonacci(11,{})
 print(res)

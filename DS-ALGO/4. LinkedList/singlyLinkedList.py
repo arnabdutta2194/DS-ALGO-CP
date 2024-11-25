@@ -92,7 +92,7 @@ class SLinkedList:
                 while (index < location -1):
                     tempNode = tempNode.next
                     index += 1
-                nextNode = tempNode.next
+                nextNode = tempNode.next #--- Node to Be Deleted
                 tempNode.next = nextNode.next
     
     def deleteAllNodesSLL(self):
